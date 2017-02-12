@@ -1,0 +1,80 @@
+/**index.wxss**/
+.container {
+  padding: 0 80rpx;
+}
+
+.color-0 {
+  color: #00B6EC;
+}
+
+.color-1 {
+  color: #72D5F2;
+}
+
+.color-2 {
+  /*color: #F7A400;*/
+  color: #ffc445;
+}
+
+.color-3 {
+  color: #EB542F;
+}
+
+.color-4 {
+  color: #efeeeb;
+}
+
+.col-aqi-1 {
+  color: #49ccd6
+}
+.col-aqi-2 {
+  color: #6ec298
+}
+.col-aqi-3 {
+  color: #96cb19
+}
+.col-aqi-4 {
+  color: #e5a529
+}
+.col-aqi-5 {
+  color: #e37554
+}
+
+.city {
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  right: 0; 
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.skycon-img {
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 380rpx;
+}
+
+.skycon {
+  margin-top: 70rpx;
+  font-size: 48rpx;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.footer {
+  position: absolute;
+  bottom: 30rpx;
+  font-weight: 300;
+  font-size: 26rpx;
+  line-height: 1.7;
+}
+
+.footer-icon {
+  position: relative;
+  top: 6rpx;
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+  opacity: .5;
+}

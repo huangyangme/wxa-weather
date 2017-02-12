@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/search/search"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#191921",
+    "navigationBarTitleText": "快看天气",
+    "backgroundColor": "#191921",
+    "navigationBarTextStyle": "white"
+  }
+}
