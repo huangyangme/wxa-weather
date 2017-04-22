@@ -40,15 +40,6 @@
   color: #e37554
 }
 
-.city {
-  position: absolute;
-  top: 20rpx;
-  left: 0;
-  right: 0; 
-  font-size: 24rpx;
-  text-align: center;
-}
-
 .skycon-img {
   width: 100rpx;
   height: 100rpx;
@@ -57,17 +48,13 @@
 
 .skycon {
   margin-top: 70rpx;
-  font-size: 48rpx;
-  font-weight: 300;
-  line-height: 1.7;
+  font: bolder 52rpx/1.7 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 
 .footer {
   position: absolute;
   bottom: 30rpx;
-  font-weight: 300;
-  font-size: 26rpx;
-  line-height: 1.7;
+  font: 300 26rpx/1.7 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 
 .footer-icon {

@@ -5,19 +5,9 @@ let U = require('../../utils/util.js');
 //获取应用实例
 var app = getApp()
 Page({
-  data: {
-    motto: 'Hello World'
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
 
   getLoc: function() {
-    // 在当前页面显示导航条加载动画
-    wx.showNavigationBarLoading();
+    wx.showLoading({ title: '定位中…', mask: true });
     let that = this;
     wx.getLocation({
       type: 'wgs84',
@@ -28,14 +18,29 @@ Page({
     })
   },
 
+  // getLocData: function() {
+  //   wx.showLoading({ title: '定位中…', mask: true });
+  //   let that = this;
+  //   wx.getLocation({
+  //     type: 'wgs84',
+  //     success: function(res) {
+  //       wx.setStorageSync('position', {
+  //         lat: res.latitude,
+  //         lon: res.longitude
+  //       });
+  //       that.getNowData(res.latitude,res.longitude);
+  //       that.getDailyData(res.latitude,res.longitude);
+  //     }
+  //   })
+  // },
+
   getNowData: function(lat,lon) {
+    wx.showLoading({ title: '数据获取中…', mask: true });
     let that = this;
     let weatherAPI = 'https://api.thinkpage.cn/v3/weather/now.json?key=5xl6osr61dscpgjy&location='+lat+':'+lon+'&language=zh-Hans';
     wx.request({
       url: weatherAPI,
-      header: {
-          'content-type': 'application/json'
-      },
+      header: { 'content-type': 'application/json' },
       success: function(res) {
         let result = res.data.results[0];
         that.setData({
@@ -47,29 +52,24 @@ Page({
           temperaturecolor: U.temperatureColor(result.now.temperature)
         })
 
-        // 隐藏导航条加载动画
-        wx.hideNavigationBarLoading();
-
-        // wx.setNavigationBarTitle({
-        //   title: result.location.name
-        // })
-
+        // wx.setNavigationBarTitle({ title: result.location.name })
+        wx.hideLoading();
       },
       fail: function(res) {
         console.log(res.data)
+        wx.hideLoading();
       }
     })
   },
 
   getDailyData: function(lat,lon) {
+    wx.showLoading({ title: '数据获取中…', mask: true });
     let that = this;
     // let weatherAPI = 'https://api.thinkpage.cn/v3/weather/daily.json?key=5xl6osr61dscpgjy&location='+lat+':'+lon+'&language=zh-Hans&unit=c&start=0&days=2';
     let caiyunAPI = 'https://api.caiyunapp.com/v2/DxGJIQ==5n8qq9Np/' + lon + ',' + lat + '/forecast.json';
     wx.request({
       url: caiyunAPI,
-      header: {
-          'content-type': 'application/json'
-      },
+      header: { 'content-type': 'application/json' },
       success: function(res) {
         console.log(res.data);
         let result = res.data.result.minutely.description;
@@ -81,19 +81,36 @@ Page({
           aqiClass: U.aqiClass(aqi)
         })
 
-        // wx.setNavigationBarTitle({
-        //   title: result.location.name
-        // })
-
+        wx.stopPullDownRefresh();
+        wx.hideLoading();
       },
       fail: function(res) {
-        console.log(res.data)
+        console.log(res.data);
+        wx.hideLoading();
       }
     })
   },
+
+  // 下拉刷新
+  onPullDownRefresh: function(){
+    this.getLoc();
+  },
   
   onLoad: function() {
-    console.log('onLoad')
-    this.getLoc()
-  }
+    this.getLoc();
+  },
+
+  // onShow: function() {
+  //   let that = this;
+  //   wx.getStorage({
+  //     key: 'position',
+  //     success: function(res){
+  //       that.getNowData(res.latitude,res.longitude);
+  //       that.getDailyData(res.latitude,res.longitude);
+  //     },
+  //     fail: function(res) {
+  //       that.getLoc();
+  //     }
+  //   })
+  // }
 })

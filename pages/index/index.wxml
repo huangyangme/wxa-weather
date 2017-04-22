@@ -1,13 +1,12 @@
 <!--index.wxml-->
 <view class="container">
-  <!--<view class="city">{{city}}</view>-->
-  <image class="skycon-img" mode="aspectFit" src="{{code}}"></image>
-  <view class="skycon">
+  <image wx:if="{{code}}" class="skycon-img" mode="aspectFit" src="{{code}}"></image>
+  <view class="skycon" wx:if="{{skycon && result}}">
     <view class="skycon-desc">现在外面<text class="{{skyconcolor}}">{{skycon}}</text>，气温<text class="{{temperaturecolor}}">{{temperature}}°</text></view>
     <view class="skycon-result">{{result}}</view>
   </view>
 
-  <view class="footer">
+  <view wx:if="{{city && aqiStr}}" class="footer">
     <!--<view>
       <image class="footer-icon" src="../../assets/icon_temperature.png"></image>
       <text>气温 </text>
