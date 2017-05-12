@@ -1,46 +1,49 @@
-function formatTime(date) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
-
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
-
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-function formatNumber(n) {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
 function temperatureColor(t) {
   let e = parseInt(t);
   if (e <= 0) {
     return 'color-0';
   } else if (e > 0 && e <= 10) {
     return 'color-1';
-  } else if (e > 10 && e <= 18) {
+  } else if (e > 10 && e <= 24) {
     return 'color-2';
   } else {
-    return 'color-3'
+    return 'color-3';
   }
 }
 
-function skyconColor(t) {
-  let e = parseInt(t);
-  if (e==0 || e==2 || e==5 || e==7) {
-    return 'color-2';
-  } else if (e == 38) {
-    return 'color-3';
-  } else if (e >= 10 && e < 18) {
-    return 'color-1';
-  } else if(e >= 19 && e < 25) {
-    return 'color-0'
+function skyconColor(s) {
+  if (s === 'CLEAR_DAY') {
+    return 'color-clear';
+  } else if (s === 'RAIN' || s === 'SLEET') {
+    return 'color-rain';
   } else {
-    return 'color-4'
+    return 'color-others';
+  }
+}
+
+function skyconText(s) {
+  if (s === 'CLEAR_DAY') {
+    return '晴';
+  } else if (s === 'CLEAR_NIGHT') {
+    return '晴夜';
+  } else if (s === 'PARTLY_CLOUDY_DAY' || s === 'PARTLY_CLOUDY_NIGHT') {
+    return '多云';
+  } else if (s === 'CLOUDY') {
+    return '阴';
+  } else if (s === 'RAIN') {
+    return '雨';
+  } else if (s === 'SNOW') {
+    return '雪';
+  } else if (s === 'WIND') {
+    return '风';
+  } else if (s === 'FOG') {
+    return '雾';
+  } else if (s === 'HAZE') {
+    return '霾';
+  } else if (s === 'SLEET') {
+    return '冻雨';
+  } else {
+    return '没见过的天气'
   }
 }
 
@@ -76,6 +79,7 @@ function aqiClass(e) {
 
 
 module.exports = {
+  skyconText: skyconText,
   skyconColor: skyconColor,
   temperatureColor: temperatureColor,
   aqiStr: aqiStr,

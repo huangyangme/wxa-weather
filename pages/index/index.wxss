@@ -1,6 +1,14 @@
 /**index.wxss**/
-.container {
-  padding: 0 80rpx;
+.color-clear {
+  color: #ffc445;
+}
+
+.color-rain {
+  color: #2d99f4;
+}
+
+.color-others {
+  color: #9eb5c7;
 }
 
 .color-0 {
@@ -12,16 +20,11 @@
 }
 
 .color-2 {
-  /*color: #F7A400;*/
   color: #ffc445;
 }
 
 .color-3 {
   color: #EB542F;
-}
-
-.color-4 {
-  color: #efeeeb;
 }
 
 .col-aqi-1 {
@@ -40,21 +43,44 @@
   color: #e37554
 }
 
-.skycon-img {
-  width: 100rpx;
-  height: 100rpx;
-  margin-top: 380rpx;
+.skycon {
+  padding: 180rpx 60rpx 0;
+  font: 300 48rpx/1.7 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 
-.skycon {
-  margin-top: 70rpx;
-  font: bolder 52rpx/1.7 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+.skycon-desc {
+  margin-bottom: 90rpx;
+  font-size: 200rpx;
+  font-weight: 200;
+  line-height: 1;
+}
+
+.skycon-img {
+  position: relative;
+  top: 22rpx;
+  margin-left: 12rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .footer {
   position: absolute;
-  bottom: 30rpx;
+  bottom: 20rpx;
+  width: 100%;
+  display: flex;
   font: 300 26rpx/1.7 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+}
+
+.footer-data {
+  width: 220rpx;
+  padding: 0 40rpx;
+}
+
+.footer-caidan {
+  flex: 1;
+  padding: 0 40rpx 0 0;
+  text-align: right;
+  color: #49ccd6;
 }
 
 .footer-icon {
@@ -62,6 +88,10 @@
   top: 6rpx;
   width: 30rpx;
   height: 30rpx;
-  margin-right: 10rpx;
+  margin-right: 6rpx;
   opacity: .5;
+}
+
+.icon-aqi {
+  margin-left: 22rpx;
 }

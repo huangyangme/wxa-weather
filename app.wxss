@@ -1,11 +1,4 @@
 /**app.wxss**/
-/*@font-face {
-    font-family: "MFLangSong_Noncommercial-Regular";
-    src: url("https://7xlcqu.media1.z0.glb.clouddn.com/MFLangSong_Noncommercial-Regular.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}*/
-
 page {
   height: 100%;
 }
