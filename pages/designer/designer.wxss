@@ -1,0 +1,54 @@
+/* pages/designer/designer.wxss */
+
+.color-green {
+  color: #2dc49a;
+}
+
+.color-red {
+  color: #ff3900;
+}
+
+.color-purple {
+  color: #9f61ff;
+}
+
+.wrapper {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.header {
+  padding: 20rpx 40rpx 0;
+  font-size: 32rpx;
+  color: #a2a2a2;
+}
+
+.description {
+  padding: 0 40rpx;
+  margin-top: 45%;
+  font-size: 68rpx;
+  color: #3a3a3a;
+}
+
+.forecast {
+  position: absolute;
+  width: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  bottom: 20rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #7f7f7f;
+}
+
+.forecast-column {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
