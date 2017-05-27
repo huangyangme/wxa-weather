@@ -1,26 +1,20 @@
 <!--index.wxml-->
 <view class="container">
-  <!--<view class="city">{{city}}</view>-->
-  <image class="skycon-img" mode="aspectFit" src="{{code}}"></image>
-  <view class="skycon">
-    <view class="skycon-desc">现在外面<text class="{{skyconcolor}}">{{skycon}}</text>，气温<text class="{{temperaturecolor}}">{{temperature}}°</text></view>
+  
+  <view class="skycon" wx:if="{{skycon && result}}">
+    <view class="skycon-desc {{skyconColor}}">{{skyconText}}<image wx:if="{{code}}" class="skycon-img" mode="aspectFit" src="{{code}}"></image></view>
     <view class="skycon-result">{{result}}</view>
+    <view class="skycon-result">之后{{result_hourly}}</view>
   </view>
 
-  <view class="footer">
-    <!--<view>
+  <view wx:if="{{temperature && aqiStr}}" class="footer">
+    <view class="footer-data">
       <image class="footer-icon" src="../../assets/icon_temperature.png"></image>
-      <text>气温 </text>
       <text class="footer-text {{temperaturecolor}}">{{temperature}}°</text>
-    </view>-->
-    <view>
-      <image class="footer-icon" src="../../assets/icon_aqi_location.png"></image>
-      <text>{{city}}</text>
-    </view>
-    <view>
-      <image class="footer-icon" src="../../assets/icon_aqi.png"></image>
-      <text>空气质量 </text>
+      <image class="footer-icon icon-aqi" src="../../assets/icon_aqi.png"></image>
       <text class="{{aqiClass}}">{{aqiStr}}</text>
     </view>
+    <!--<view class="footer-caidan">{{caidan}}</view>-->
   </view>
+
 </view>
