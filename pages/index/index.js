@@ -25,7 +25,7 @@ Page({
     wx.showLoading({ title: '数据获取中…', mask: true });
     let that = this;
     wx.request({
-      url: 'https://api.caiyunapp.com/v2/TAkhjf8d1nlSlspN/' + lon + ',' + lat + '/realtime.json',
+      url: 'https://api.caiyunapp.com/v2/vYHrEZjjEI0D6=xI/' + lon + ',' + lat + '/realtime.json',
       header: { 'content-type': 'application/json' },
       success: function (res) {
         console.log(res.data);
@@ -52,7 +52,7 @@ Page({
   getForecast: function(lat,lon) {
     wx.showLoading({ title: '数据获取中…', mask: true });
     let that = this;
-    let caiyunAPI = 'https://api.caiyunapp.com/v2/DxGJIQ==5n8qq9Np/' + lon + ',' + lat + '/forecast.json';
+    let caiyunAPI = 'https://api.caiyunapp.com/v2/vYHrEZjjEI0D6=xI/' + lon + ',' + lat + '/forecast.json';
     wx.request({
       url: caiyunAPI,
       header: { 'content-type': 'application/json' },
