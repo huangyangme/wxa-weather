@@ -1,5 +1,34 @@
 /* pages/designer/designer.wxss */
 
+/* latin-ext */
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Dosis Regular'), local('Dosis-Regular'), url(https://fonts.gstatic.com/s/dosis/v6/3isE9muMMOq1K7TQ7HkKvIDGDUGfDkXyfkzVDelzfFk.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Dosis Regular'), local('Dosis-Regular'), url(https://fonts.gstatic.com/s/dosis/v6/oaBFj7Fz9Y9_eW3k9Jd9X6CWcynf_cDxXwCLxiixG1c.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'weather-icon';
+  font-style: normal;
+  font-weight: 400;
+  src: url("http://7xlcqu.media1.z0.glb.clouddn.com/weatherFont.ttf");
+}
+
+.weather-icon {
+  font-family: 'weather-icon', sans-serif;
+}
+
+
 .color-green {
   color: #2dc49a;
 }
@@ -19,19 +48,43 @@
   font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
   font-weight: 300;
   line-height: 1.6;
+  color: #fff;
+  background-color: #3a3a3a;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 
 .header {
-  padding: 20rpx 40rpx 0;
   font-size: 32rpx;
-  color: #a2a2a2;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.description {
-  padding: 0 40rpx;
-  margin-top: 45%;
-  font-size: 68rpx;
-  color: #3a3a3a;
+.now-wrapper {
+  position: absolute;
+  bottom: 260rpx;
+  display: flex;
+  flex-direction: row;
+  height: 180rpx;
+  background: rgba(255, 255, 255, 0.6)
+}
+
+.now-temperature {
+  margin: 0 30rpx;
+  font-size: 160rpx;
+  font-family: 'Dosis', sans-serif;
+  line-height: 1;
+  letter-spacing: 8rpx;
+}
+
+.now-temperature-small {
+  font-size: 40rpx;
+  line-height: 1;
+}
+
+.now-wind {
+  font-size: 26rpx;
 }
 
 .forecast {
@@ -43,8 +96,8 @@
   flex-direction: column;
   bottom: 20rpx;
   font-size: 32rpx;
-  font-weight: 400;
-  color: #7f7f7f;
+  color: #52BDFC;
+  background: #fff;
 }
 
 .forecast-column {

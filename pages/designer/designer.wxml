@@ -1,10 +1,13 @@
 <!--pages/designer/designer.wxml-->
-<view class="wrapper">
-<view class="header">{{location_name}},{{location_country}}</view>
+<view class="wrapper" style="background-image: url({{image}})">
+<view class="header">{{nowData.location.name}},{{nowData.location.country}}</view>
 
-<view class="description">
-  <view class=""><text class="color-green">19°</text>, fells like <text class="color-purple">12°</text></view>
-  <view class="">It's <text class="color-red">sunny</text> out.</view>
+<view class="now-wrapper">
+  <view class="now-temperature">{{nowData.now.temperature}}<text class="now-temperature-small">°</text></view>
+  <view class="">
+    <view class="now-icon"><text class="weather-icon">A</text>{{nowData.now.code}}</view>
+    <view class="now-wind">{{nowData.now.wind_direction}}风{{nowData.now.wind_scale}}级 湿度{{nowData.now.humidity}}%</view>
+  </view>
 </view>
 
 <view class="forecast">
@@ -24,6 +27,7 @@
     <text class="forecast-skycon">Sunny</text>
   </view>
 </view>
+
 </view>
 
 
