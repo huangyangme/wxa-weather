@@ -10,7 +10,7 @@ Page({
   data: {
     location_name: '',
     location_country: '',
-    // image: 'https://pixabay.com/get/e03db50a29fc1c2ad65a5854e34a4f95e470e4c818b5184995f4c77aa1eb_640.jpg',
+    image: 'https://pixabay.com/get/e03db50a29fc1c2ad65a5854e34a4f95e470e4c818b5184995f4c77aa1eb_640.jpg',
     nowData: {
       "location": {
         "id": "C23NB62W20TF",
@@ -42,7 +42,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getLoc();
+    this.getLoc();
     // this.getPic();
   },
 
@@ -101,7 +101,8 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success: function (res) {
-        that.getNow(res.latitude, res.longitude);
+        // that.getNow(res.latitude, res.longitude);
+        that.getDaily(res.latitude, res.longitude);
       }
     })
   },
@@ -142,6 +143,19 @@ Page({
       }
     })
   },
+
+  getDaily: function(lat, lon){
+    let that = this;
+    wx.request({
+      url: 'https://api.seniverse.com/v3/weather/daily.json?key=5xl6osr61dscpgjy&location=' + lat + ':' + lon + '&language=zh-Hans&unit=c&start=0&days=3',
+      success: function(res) {
+        console.log(res.data.results[0].daily)
+        that.setData({
+          dailyData: res.data.results[0].daily
+        })
+      }
+    })
+  }
 
 
 

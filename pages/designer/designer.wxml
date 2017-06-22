@@ -11,20 +11,10 @@
 </view>
 
 <view class="forecast">
-  <view class="forecast-column">
-    <text class="forecast-day">Tue</text>
-    <text class="forecast-temperature">34°</text>
-    <text class="forecast-skycon">Sunny</text>
-  </view>
-  <view class="forecast-column">
-    <text class="forecast-day">Wed</text>
-    <text class="forecast-temperature">12°</text>
-    <text class="forecast-skycon">Sunny</text>
-  </view>
-  <view class="forecast-column">
-    <text class="forecast-day">Tue</text>
-    <text class="forecast-temperature">2°</text>
-    <text class="forecast-skycon">Sunny</text>
+  <view wx:for="{{dailyData}}" class="forecast-column">
+    <view class="forecast-day">{{item.date}}</view>
+    <view class="forecast-skycon">{{item.code_day}}</view>
+    <view class="forecast-temperature">{{item.low}}°~{{item.high}}°</view>
   </view>
 </view>
 

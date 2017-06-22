@@ -5,9 +5,9 @@ let U = require('../../utils/util.js');
 //获取应用实例
 var app = getApp()
 Page({
-  // data: {
-  //   candan: '你看，天上的夜亮好严啊 😍'
-  // },
+  data: {
+    candan: false
+  },
 
   getLoc: function() {
     wx.showLoading({ title: '定位中…', mask: true });
@@ -34,6 +34,11 @@ Page({
         let aqi = data.aqi;
         let temperature = data.temperature;
         console.log(aqi)
+        if (skycon == 'CLEAR_NIGHT') {
+          that.setData({
+            caidan: true
+          })
+        }
         that.setData({
           code: '/assets/' + skycon + '.png',
           // code: '/assets/CLEAR_NIGHT.png',
@@ -76,7 +81,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: this.data.result,
+      title: this.data.result_hourly,
       path: '/pages/index/index'
     }
   },

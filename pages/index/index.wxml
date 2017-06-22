@@ -3,8 +3,8 @@
   
   <view class="skycon" wx:if="{{skycon && result}}">
     <view class="skycon-desc {{skyconColor}}">{{skyconText}}<image wx:if="{{code}}" class="skycon-img" mode="aspectFit" src="{{code}}"></image></view>
-    <view class="skycon-result">{{result}}</view>
-    <view class="skycon-result">之后{{result_hourly}}</view>
+    <!--<view class="skycon-result">{{result}}</view>-->
+    <view class="skycon-result">{{result_hourly}}</view>
   </view>
 
   <view wx:if="{{temperature && aqiStr}}" class="footer">
@@ -14,7 +14,7 @@
       <image class="footer-icon icon-aqi" src="../../assets/icon_aqi.png"></image>
       <text class="{{aqiClass}}">{{aqiStr}}</text>
     </view>
-    <!--<view class="footer-caidan">{{caidan}}</view>-->
+    <view wx:if="{{caidan}}" class="footer-caidan">你看，天上的夜亮好严啊 😍</view>
   </view>
 
 </view>

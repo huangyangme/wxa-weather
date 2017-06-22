@@ -45,11 +45,11 @@
 
 .skycon {
   padding: 180rpx 60rpx 0;
-  font: 300 48rpx/1.7 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+  font: 300 42rpx/1.7 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 
 .skycon-desc {
-  margin-bottom: 90rpx;
+  margin-bottom: 60rpx;
   font-size: 200rpx;
   font-weight: 200;
   line-height: 1;
