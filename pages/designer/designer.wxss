@@ -57,6 +57,7 @@
 }
 
 .header {
+  margin-top: 20rpx;
   font-size: 32rpx;
   text-align: center;
   color: rgba(255, 255, 255, 0.9);

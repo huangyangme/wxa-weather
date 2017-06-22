@@ -1,6 +1,7 @@
 // pages/designer/designer.js
 // https://www.seniverse.com/doc
 // https://pixabay.com/api/docs/
+// https://unsplash.com/documentation#get-a-random-photo
 
 Page({
 
@@ -42,8 +43,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getLoc();
-    // this.getPic();
+    // this.getLoc();
+    this.getPhoto();
   },
 
   /**
@@ -115,6 +116,19 @@ Page({
         console.log(res.data.hits[0].webformatURL);
         that.setData({
           image: res.data.hits[1].webformatURL
+        })
+      }
+    })
+  },
+
+  getPhoto: function() {
+    let that = this;
+    wx.request({
+      url: 'https://api.unsplash.com/photos/random?orientation=portrait&client_id=3e8beded2efc246e5df094b2650deff66466d4f9b6fa9e975433316725db71f9',
+      success: function(res) {
+        console.log(res.data)
+        that.setData({
+          photo: res.data.urls.regular
         })
       }
     })

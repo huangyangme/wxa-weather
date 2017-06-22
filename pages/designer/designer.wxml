@@ -1,6 +1,6 @@
 <!--pages/designer/designer.wxml-->
-<view class="wrapper" style="background-image: url({{image}})">
-<view class="header">{{nowData.location.name}},{{nowData.location.country}}</view>
+<view class="wrapper" style="background-image: url({{photo}})">
+<view class="header">{{nowData.location.name}}</view>
 
 <view class="now-wrapper">
   <view class="now-temperature">{{nowData.now.temperature}}<text class="now-temperature-small">°</text></view>
