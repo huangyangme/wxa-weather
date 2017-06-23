@@ -10,9 +10,9 @@
   </view>
 </view>
 
-<view class="forecast">
+<view wx:if="{{dailyData}}" class="forecast">
   <view wx:for="{{dailyData}}" class="forecast-column">
-    <view class="forecast-day">{{item.date}}</view>
+    <view class="forecast-date">{{item.date}}</view>
     <view class="forecast-skycon">{{item.code_day}}</view>
     <view class="forecast-temperature">{{item.low}}°~{{item.high}}°</view>
   </view>
