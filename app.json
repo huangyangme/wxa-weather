@@ -1,6 +1,5 @@
 {
   "pages":[
-    "pages/designer/designer",
     "pages/index/index"
   ],
   "window":{

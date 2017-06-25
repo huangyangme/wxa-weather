@@ -1,87 +1,147 @@
-function temperatureColor(t) {
-  let e = parseInt(t);
-  if (e <= 0) {
-    return 'color-0';
-  } else if (e > 0 && e <= 10) {
-    return 'color-1';
-  } else if (e > 10 && e <= 24) {
-    return 'color-2';
-  } else {
-    return 'color-3';
+// function skyconicon(s) {
+//   if (s === '0' || s === '2') {
+//     return 'A';
+//   }
+//   if (s === '1' || s === '3') {
+//     return 'B';
+//   }
+//   if (s === '4') {
+//     return 'G';
+//   }
+//   if (s === '5' || s === '7'){
+//     return 'C'
+//   }
+//   if (s === '6' || s === '8') {
+//     return 'D';
+//   }
+//   if (s === '9') {
+//     return 'O';
+//   }
+//   if (s === '10') {
+//     return 'P';
+//   }
+//   if (s === '11') {
+//     return 'T';
+//   }
+//   if (s === '12') {
+//     return 'V';
+//   }
+//   if (s === '13') {
+//     return 'Q';
+//   }
+//   if (s === '14' || s === '15') {
+//     return 'R';
+//   }
+//   if(s === '16' || s === '17' || s === '18'){
+//     return 'S'
+//   }
+//   if(s === '19' || s === '20' || s === '21'){
+//     return 'X'
+//   }
+//   if(s === '22' || s === '23' || s === '24' || s === '25'){
+//     return 'W'
+//   }
+//   if (s === '26' || s === '27' || s === '28' || s === '29') {
+//     return 'c'
+//   }
+//   if (s === '30' || s === '31') {
+//     return 'N'
+//   }
+//   if (s === '32') {
+//     return 'a'
+//   }
+//   if (s === '33') {
+//     return 'b'
+//   }
+//   if (s === '34' || s === '35') {
+//     return 'V'
+//   }
+//   if (s === '36') {
+//     return 'e'
+//   }
+//   if (s === '37') {
+//     return 'o'
+//   }
+//   if (s === '38') {
+//     return 'h'
+//   }
+//   if (s === '99') {
+//     return 'p'
+//   }
+// }
+
+function skyconicon(s) {
+  if (s === '0' || s === '2') {
+    return 'icon-0-2';
+  }
+  if (s === '4' || s === '6' || s === '8' || s === '9') {
+    return 'icon-4-6-8-9';
+  }
+  if (s === '5' || s === '7') {
+    return 'icon-5-7';
+  }
+  if (s === '10' || s === '14') {
+    return 'icon-10-14'
+  }
+  if (s === '13') {
+    return 'icon-13';
+  }
+  if (s === '15') {
+    return 'icon-15';
+  }
+  if (s === '11') {
+    return 'icon-11';
+  }
+  if (s === '12') {
+    return 'icon-12';
+  }
+  if (s === '12') {
+    return 'V';
+  }
+  if (s === '13') {
+    return 'Q';
+  }
+  if (s === '14' || s === '15') {
+    return 'R';
+  }
+  if (s === '16' || s === '17' || s === '18') {
+    return 'S'
+  }
+  if (s === '19' || s === '20' || s === '21') {
+    return 'X'
+  }
+  if (s === '22' || s === '23' || s === '24' || s === '25') {
+    return 'W'
+  }
+  if (s === '26' || s === '27' || s === '28' || s === '29') {
+    return 'c'
+  }
+  if (s === '30' || s === '31') {
+    return 'N'
+  }
+  if (s === '32') {
+    return 'a'
+  }
+  if (s === '33') {
+    return 'b'
+  }
+  if (s === '34' || s === '35') {
+    return 'V'
+  }
+  if (s === '36') {
+    return 'e'
+  }
+  if (s === '37') {
+    return 'o'
+  }
+  if (s === '38') {
+    return 'h'
+  }
+  if (s === '99') {
+    return 'p'
   }
 }
-
-function skyconColor(s) {
-  if (s === 'CLEAR_DAY') {
-    return 'color-clear';
-  } else if (s === 'RAIN' || s === 'SLEET') {
-    return 'color-rain';
-  } else {
-    return 'color-others';
-  }
-}
-
-function skyconText(s) {
-  if (s === 'CLEAR_DAY') {
-    return '晴';
-  } else if (s === 'CLEAR_NIGHT') {
-    return '晴夜';
-  } else if (s === 'PARTLY_CLOUDY_DAY' || s === 'PARTLY_CLOUDY_NIGHT') {
-    return '多云';
-  } else if (s === 'CLOUDY') {
-    return '阴';
-  } else if (s === 'RAIN') {
-    return '雨';
-  } else if (s === 'SNOW') {
-    return '雪';
-  } else if (s === 'WIND') {
-    return '风';
-  } else if (s === 'FOG') {
-    return '雾';
-  } else if (s === 'HAZE') {
-    return '霾';
-  } else if (s === 'SLEET') {
-    return '冻雨';
-  } else {
-    return '没见过的天气'
-  }
-}
-
-function aqiStr(e) {
-  if(e <= 50) {
-    return '优';
-  } else if (e > 50 && e <= 100) {
-    return '良';
-  } else if (e > 100 && e <= 150) {
-    return '轻度污染';
-  } else if (e > 150 && e <= 200) {
-    return '中度污染';
-  } else if (e > 200 && e <= 300) {
-    return '重度污染';
-  } else if (e > 500) {
-    return '有毒';
-  }
-}
-
-function aqiClass(e) {
-  if(e <= 50) {
-    return 'col-aqi-1';
-  } else if (e > 50 && e <= 100) {
-    return 'col-aqi-2';
-  } else if (e > 100 && e <= 150) {
-    return 'col-aqi-3';
-  } else if (e > 150 && e <= 200) {
-    return 'col-aqi-4';
-  } else if (e > 200) {
-    return 'col-aqi-5';
-  }
-}
-
 
 module.exports = {
-  skyconText: skyconText,
-  skyconColor: skyconColor,
-  temperatureColor: temperatureColor,
-  aqiStr: aqiStr,
-  aqiClass: aqiClass
+  skyconicon: skyconicon
 }

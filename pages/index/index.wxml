@@ -1,20 +1,23 @@
-<!--index.wxml-->
-<view class="container">
-  
-  <view class="skycon" wx:if="{{skycon && result}}">
-    <view class="skycon-desc {{skyconColor}}">{{skyconText}}<image wx:if="{{code}}" class="skycon-img" mode="aspectFit" src="{{code}}"></image></view>
-    <!--<view class="skycon-result">{{result}}</view>-->
-    <view class="skycon-result">{{result_hourly}}</view>
-  </view>
+<!--pages/designer/designer.wxml-->
+<view class="wrapper" style="background-image: url({{photo}})">
+<view class="header">{{nowData.location.name}}</view>
 
-  <view wx:if="{{temperature && aqiStr}}" class="footer">
-    <view class="footer-data">
-      <image class="footer-icon" src="../../assets/icon_temperature.png"></image>
-      <text class="footer-text {{temperaturecolor}}">{{temperature}}°</text>
-      <image class="footer-icon icon-aqi" src="../../assets/icon_aqi.png"></image>
-      <text class="{{aqiClass}}">{{aqiStr}}</text>
-    </view>
-    <view wx:if="{{caidan}}" class="footer-caidan">你看，天上的夜亮好严啊 😍</view>
+<view wx:if="{{nowData}}" class="now-wrapper">
+  <view class="now-temperature">{{nowData.now.temperature}}<text class="now-temperature-small">°</text></view>
+  <view class="">
+    <view class="now-code iconfont icon-{{nowData.now.code}}"></view>
+    <view class="now-wind">{{nowData.now.wind_direction}}风{{nowData.now.wind_scale}}级 湿度{{nowData.now.humidity}}%</view>
   </view>
+</view>
+
+<view wx:if="{{dailyData}}" class="forecast">
+  <view wx:for="{{dailyData}}" class="forecast-column">
+    <view class="forecast-date">{{item.date}}</view>
+    <view class="forecast-skycon iconfont icon-{{item.code_day}}"></view>
+    <view class="forecast-temperature">{{item.low}}°~{{item.high}}°</view>
+  </view>
+</view>
 
 </view>
+
+

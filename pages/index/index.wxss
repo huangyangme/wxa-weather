@@ -1,97 +1,125 @@
-/**index.wxss**/
-.color-clear {
-  color: #ffc445;
+/* pages/designer/designer.wxss */
+
+@font-face{font-family:"iconfont";src:url(//at.alicdn.com/t/font_01yzhs84fp28d7vi.eot?t=1498362126745);src:url(//at.alicdn.com/t/font_01yzhs84fp28d7vi.eot?t=1498362126745#iefix) format('embedded-opentype') , url(//at.alicdn.com/t/font_01yzhs84fp28d7vi.woff?t=1498362126745) format('woff') , url(//at.alicdn.com/t/font_01yzhs84fp28d7vi.ttf?t=1498362126745) format('truetype') , url(//at.alicdn.com/t/font_01yzhs84fp28d7vi.svg?t=1498362126745#iconfont) format('svg')}.iconfont{font-family:"iconfont"!important;font-size:16px;font-style:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-38:before{content:"\e79a"}.icon-1:before{content:"\e652"}.icon-0:before{content:"\e603"}.icon-4:before{content:"\e604"}.icon-5:before{content:"\e605"}.icon-10:before{content:"\e606"}.icon-13:before{content:"\e607"}.icon-15:before{content:"\e608"}.icon-11:before{content:"\e609"}.icon-12:before{content:"\e60a"}.icon-17:before{content:"\e60b"}.icon-16:before{content:"\e60c"}.icon-21:before{content:"\e60d"}.icon-23:before{content:"\e60e"}.icon-19:before{content:"\e60f"}.icon-24:before{content:"\e610"}.icon-26:before{content:"\e611"}.icon-28:before{content:"\e612"}.icon-25:before{content:"\e613"}.icon-30:before{content:"\e614"}.icon-31:before{content:"\e615"}.icon-34:before{content:"\e616"}.icon-33:before{content:"\e617"}.icon-35:before{content:"\e618"}.icon-32:before{content:"\e619"}.icon-99:before{content:"\e61a"}.icon-37:before{content:"\e8cf"}.icon-2:before{content:"\e8d0"}.icon-3:before{content:"\e8d1"}.icon-6:before{content:"\e8d2"}.icon-8:before{content:"\e8d3"}.icon-9:before{content:"\e8d4"}.icon-7:before{content:"\e8d5"}.icon-14:before{content:"\e8d6"}.icon-18:before{content:"\e8d8"}.icon-22:before{content:"\e8d9"}.icon-20:before{content:"\e8da"}.icon-27:before{content:"\e8db"}.icon-29:before{content:"\e8dc"}.icon-36:before{content:"\e8dd"}
+
+
+/* latin-ext */
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Dosis Regular'), local('Dosis-Regular'), url(https://fonts.gstatic.com/s/dosis/v6/3isE9muMMOq1K7TQ7HkKvIDGDUGfDkXyfkzVDelzfFk.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Dosis Regular'), local('Dosis-Regular'), url(https://fonts.gstatic.com/s/dosis/v6/oaBFj7Fz9Y9_eW3k9Jd9X6CWcynf_cDxXwCLxiixG1c.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
-.color-rain {
-  color: #2d99f4;
+
+.wrapper {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  color: #fff;
+  background-color: #3a3a3a;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 
-.color-others {
-  color: #9eb5c7;
+.header {
+  padding-top: 20rpx;
+  font-size: 32rpx;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.color-0 {
-  color: #00B6EC;
+.now-wrapper {
+  position: absolute;
+  bottom: 290rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /*height: 180rpx;*/
+  /*background: rgba(255, 255, 255, 0.2)*/
 }
 
-.color-1 {
-  color: #72D5F2;
+.now-temperature {
+  margin: 0 30rpx;
+  font-size: 160rpx;
+  font-family: 'Dosis', sans-serif;
+  line-height: 1;
+  letter-spacing: 8rpx;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
 }
 
-.color-2 {
-  color: #ffc445;
-}
-
-.color-3 {
-  color: #EB542F;
-}
-
-.col-aqi-1 {
-  color: #49ccd6
-}
-.col-aqi-2 {
-  color: #6ec298
-}
-.col-aqi-3 {
-  color: #96cb19
-}
-.col-aqi-4 {
-  color: #e5a529
-}
-.col-aqi-5 {
-  color: #e37554
-}
-
-.skycon {
-  padding: 180rpx 60rpx 0;
-  font: 300 42rpx/1.7 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
-}
-
-.skycon-desc {
-  margin-bottom: 60rpx;
-  font-size: 200rpx;
-  font-weight: 200;
+.now-temperature-small {
+  font-size: 40rpx;
   line-height: 1;
 }
 
-.skycon-img {
-  position: relative;
-  top: 22rpx;
-  margin-left: 12rpx;
-  width: 60rpx;
-  height: 60rpx;
+.now-code {
+  margin-bottom: 10rpx;
+  font-size: 90rpx;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
 }
 
-.footer {
+.now-wind {
+  font-size: 26rpx;
+  color: rgba(255,255,255,.8);
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+}
+
+.forecast {
   position: absolute;
-  bottom: 20rpx;
+  bottom: 0;
   width: 100%;
+  padding: 20rpx 0 40rpx;
+  box-sizing: border-box;
   display: flex;
-  font: 300 26rpx/1.7 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 32rpx;
+  color: #52BDFC;
+  /*background: #fff;*/
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
-.footer-data {
-  width: 220rpx;
-  padding: 0 40rpx;
+.forecast::before {
+  content: '';
+  position: absolute;
+  top: -90rpx;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 90rpx 0 0 750rpx;
+  /*border-color: transparent transparent transparent #fff;*/
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
 }
 
-.footer-caidan {
-  flex: 1;
-  padding: 0 40rpx 0 0;
-  text-align: right;
-  color: #49ccd6;
+.forecast-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 24rpx;
 }
 
-.footer-icon {
-  position: relative;
-  top: 6rpx;
-  width: 30rpx;
-  height: 30rpx;
-  margin-right: 6rpx;
-  opacity: .5;
+.forecast-date {
 }
 
-.icon-aqi {
-  margin-left: 22rpx;
+.forecast-skycon {
+  margin: 10rpx 0;
+  font-size: 40rpx;
+}
+
+
+.forecast-temperature {
+  font-weight: 300;
 }

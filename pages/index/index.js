@@ -1,97 +1,79 @@
-//index.js
+// pages/designer/designer.js
+// https://www.seniverse.com/doc
+// https://pixabay.com/api/docs/
+// https://unsplash.com/documentation#get-a-random-photo
 
 let U = require('../../utils/util.js');
-
-//获取应用实例
-var app = getApp()
 Page({
   data: {
-    candan: false
   },
 
-  getLoc: function() {
-    wx.showLoading({ title: '定位中…', mask: true });
-    let that = this;
-    wx.getLocation({
-      type: 'wgs84',
-      success: function(res) {
-        that.getRealtime(res.latitude, res.longitude);
-        that.getForecast(res.latitude,res.longitude);
-      }
-    })
+  onLoad: function (options) {
+    this.getLoc();
+    this.getPhoto();
   },
 
-  getRealtime: function (lat, lon) {
-    wx.showLoading({ title: '数据获取中…', mask: true });
-    let that = this;
-    wx.request({
-      url: 'https://api.caiyunapp.com/v2/vYHrEZjjEI0D6=xI/' + lon + ',' + lat + '/realtime.json',
-      header: { 'content-type': 'application/json' },
-      success: function (res) {
-        console.log(res.data);
-        let data = res.data.result;
-        let skycon = data.skycon;
-        let aqi = data.aqi;
-        let temperature = data.temperature;
-        console.log(aqi)
-        if (skycon == 'CLEAR_NIGHT') {
-          that.setData({
-            caidan: true
-          })
-        }
-        that.setData({
-          code: '/assets/' + skycon + '.png',
-          // code: '/assets/CLEAR_NIGHT.png',
-          skycon: skycon,
-          skyconText: U.skyconText(skycon),
-          skyconColor: U.skyconColor(skycon),
-          aqiStr: U.aqiStr(aqi),
-          aqiClass: U.aqiClass(aqi),
-          temperature: temperature,
-          temperaturecolor: U.temperatureColor(temperature)
-        })
-      }
-    })
-  },
-
-  getForecast: function(lat,lon) {
-    wx.showLoading({ title: '数据获取中…', mask: true });
-    let that = this;
-    let caiyunAPI = 'https://api.caiyunapp.com/v2/vYHrEZjjEI0D6=xI/' + lon + ',' + lat + '/forecast.json';
-    wx.request({
-      url: caiyunAPI,
-      header: { 'content-type': 'application/json' },
-      success: function(res) {
-        let result = res.data.result.minutely.description;
-        let result_hourly = res.data.result.hourly.description;
-        that.setData({
-          result: result,
-          result_hourly: result_hourly
-        })
-
-        wx.stopPullDownRefresh();
-        wx.hideLoading();
-      },
-      fail: function(res) {
-        console.log(res.data);
-        wx.hideLoading();
-      }
-    })
+  onShow: function () {
   },
 
   onShareAppMessage: function () {
     return {
-      title: this.data.result_hourly,
-      path: '/pages/index/index'
+      title: '自定义转发标题',
+      path: '/page/user?id=123'
     }
   },
 
-  // 下拉刷新
-  onPullDownRefresh: function(){
-    this.getLoc();
+  getLoc: function () {
+    wx.showLoading({ title: '定位中…', mask: true });
+    let that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        that.getNow(res.latitude, res.longitude);
+        that.getDaily(res.latitude, res.longitude);
+      }
+    })
   },
-  
-  onLoad: function() {
-    this.getLoc();
+
+  getPhoto: function() {
+    let that = this;
+    wx.request({
+      url: 'https://api.unsplash.com/photos/random?orientation=portrait&client_id=3e8beded2efc246e5df094b2650deff66466d4f9b6fa9e975433316725db71f9',
+      success: function(res) {
+        console.log(res.data)
+        that.setData({
+          photo: res.data.urls.regular
+        })
+      }
+    })
+  },
+
+  getNow: function(lat,lon) {
+    wx.showLoading({ title: '数据获取中…', mask: true });
+    let that = this;
+    wx.request({
+      url: 'https://api.seniverse.com/v3/weather/now.json?key=5xl6osr61dscpgjy&location=' + lat + ':' + lon + '&language=zh-Hans',
+      success: function (res) {
+        wx.hideLoading();
+        that.setData({
+          nowData: res.data.results[0]
+          // nowCode: U.skyconicon(res.data.results[0].now.code)
+        })
+      }
+    })
+  },
+
+  getDaily: function(lat, lon){
+    let that = this;
+    wx.request({
+      url: 'https://api.seniverse.com/v3/weather/daily.json?key=5xl6osr61dscpgjy&location=' + lat + ':' + lon + '&language=zh-Hans&unit=c&start=0&days=3',
+      success: function(res) {
+        wx.hideLoading();
+        that.setData({
+          dailyData: res.data.results[0].daily
+        })
+      }
+    })
   }
+
 })
