@@ -10,7 +10,13 @@ Page({
 
   onLoad: function (options) {
     this.getLoc();
-    this.getPhoto();
+    // this.getPhoto();
+
+    this.setData({
+      picurl: 'http://os3aoyjlk.bkt.clouddn.com/p' + Math.floor(Math.random() * 50 + 1) + '.jpg?imageView2/2/w/1080/format/jpg/interlace/1/q/75'
+    })
+
+    // return Math.floor(Math.random() * (5 - 1) + 1);
   },
 
   onShow: function () {
@@ -35,18 +41,18 @@ Page({
     })
   },
 
-  getPhoto: function() {
-    let that = this;
-    wx.request({
-      url: 'https://api.unsplash.com/photos/random?orientation=portrait&client_id=3e8beded2efc246e5df094b2650deff66466d4f9b6fa9e975433316725db71f9',
-      success: function(res) {
-        console.log(res.data)
-        that.setData({
-          photo: res.data.urls.regular
-        })
-      }
-    })
-  },
+  // getPhoto: function() {
+  //   let that = this;
+  //   wx.request({
+  //     url: 'https://api.unsplash.com/photos/random?orientation=portrait&client_id=3e8beded2efc246e5df094b2650deff66466d4f9b6fa9e975433316725db71f9',
+  //     success: function(res) {
+  //       console.log(res.data)
+  //       that.setData({
+  //         photo: res.data.urls.regular
+  //       })
+  //     }
+  //   })
+  // },
 
   getNow: function(lat,lon) {
     wx.showLoading({ title: '数据获取中…', mask: true });

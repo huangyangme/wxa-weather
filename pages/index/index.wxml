@@ -1,5 +1,5 @@
 <!--pages/designer/designer.wxml-->
-<view class="wrapper" style="background-image: url({{photo}})">
+<view class="wrapper" style="background-image: url({{picurl}})">
 <view class="header">{{nowData.location.name}}</view>
 
 <view wx:if="{{nowData}}" class="now-wrapper">
